@@ -15,8 +15,8 @@ protocol ScannerVCDelegate: AnyObject {
 
 final class ScannerVC: UIViewController {
     
-    let captureSession = AVCaptureSession()
-    var previewLayer: AVCaptureVideoPreviewLayer?
+    private let captureSession = AVCaptureSession()
+    private var previewLayer: AVCaptureVideoPreviewLayer?
     weak var scannerDelegate: ScannerVCDelegate?
     
     init(scannerDelegate: ScannerVCDelegate) {
@@ -26,6 +26,21 @@ final class ScannerVC: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupCaptureSession()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        guard let previewLayer = previewLayer else {
+            scannerDelegate?.didSurface(error: .invalidDeviceInput)
+            return
+        }
+        previewLayer.frame = view.layer.bounds
     }
     
     private func setupCaptureSession() {
@@ -67,8 +82,10 @@ final class ScannerVC: UIViewController {
         if let previewLayer = previewLayer {
             previewLayer.videoGravity = .resizeAspectFill
             view.layer.addSublayer(previewLayer)
+            DispatchQueue.global().async {
+                self.captureSession.startRunning()
+            }
             
-            captureSession.startRunning()
         } else {
             scannerDelegate?.didSurface(error: .invalidDeviceInput)
         }
@@ -82,7 +99,12 @@ extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
         let barcode = machineReadableObject.stringValue else {
             scannerDelegate?.didSurface(error: .invalidScannedValue)
             return }
+        print("\(String(describing: metadataObjects.first))")
         
         scannerDelegate?.didFind(barcode: barcode)
+        captureSession.stopRunning()
+
+        
+        
     }
 }

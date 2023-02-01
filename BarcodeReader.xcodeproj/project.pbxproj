@@ -13,6 +13,7 @@
 		BCB6CB7E298998BE00CFCE22 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCB6CB7D298998BE00CFCE22 /* Preview Assets.xcassets */; };
 		BCB6CB85298ABA7600CFCE22 /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6CB84298ABA7500CFCE22 /* ScannerVC.swift */; };
 		BCB6CB87298AE4C400CFCE22 /* CameraErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6CB86298AE4C400CFCE22 /* CameraErrors.swift */; };
+		BCB6CB8B298AEE8E00CFCE22 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6CB8A298AEE8E00CFCE22 /* ScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		BCB6CB7D298998BE00CFCE22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BCB6CB84298ABA7500CFCE22 /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
 		BCB6CB86298AE4C400CFCE22 /* CameraErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraErrors.swift; sourceTree = "<group>"; };
+		BCB6CB8A298AEE8E00CFCE22 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				BCB6CB76298998BC00CFCE22 /* BarcodeReaderApp.swift */,
 				BCB6CB78298998BC00CFCE22 /* BarcodeReaderView.swift */,
+				BCB6CB8A298AEE8E00CFCE22 /* ScannerView.swift */,
 				BCB6CB84298ABA7500CFCE22 /* ScannerVC.swift */,
 				BCB6CB86298AE4C400CFCE22 /* CameraErrors.swift */,
 				BCB6CB7A298998BE00CFCE22 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				BCB6CB79298998BC00CFCE22 /* BarcodeReaderView.swift in Sources */,
 				BCB6CB77298998BC00CFCE22 /* BarcodeReaderApp.swift in Sources */,
 				BCB6CB87298AE4C400CFCE22 /* CameraErrors.swift in Sources */,
+				BCB6CB8B298AEE8E00CFCE22 /* ScannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
