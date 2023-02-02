@@ -99,12 +99,10 @@ extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
         let barcode = machineReadableObject.stringValue else {
             scannerDelegate?.didSurface(error: .invalidScannedValue)
             return }
-        print("\(String(describing: metadataObjects.first))")
-        
-        scannerDelegate?.didFind(barcode: barcode)
-        captureSession.stopRunning()
 
-        
-        
+        captureSession.stopRunning()
+        scannerDelegate?.didFind(barcode: barcode)
+ 
     }
 }
+

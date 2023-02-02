@@ -3,13 +3,15 @@
 //  BarcodeReader
 //
 //  Created by AnatoliiOstapenko on 01.02.2023.
-//
+
+// It's coordinator for interaction between UIKit and SwiftUI
 
 import SwiftUI
 
 struct ScannerView: UIViewControllerRepresentable {
     
     @Binding var scannedCode: String
+    @Binding var alertItem: AlertItem?
     
     func makeUIViewController(context: Context) -> ScannerVC {
         return ScannerVC(scannerDelegate: context.coordinator)
@@ -35,15 +37,15 @@ struct ScannerView: UIViewControllerRepresentable {
         }
         
         func didSurface(error: CameraErrors) {
-            print("error is: \(error)")
+            switch error {
+            case .invalidDeviceInput:
+                scannerView.alertItem = AlertContext.invalidDeviceInput
+            case .invalidScannedValue:
+                scannerView.alertItem = AlertContext.invalidScannedValue
+            }
         }
         
         
     }
 }
-
-struct ScannerView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScannerView(scannedCode: .constant(""))
-    }
-}
+    
