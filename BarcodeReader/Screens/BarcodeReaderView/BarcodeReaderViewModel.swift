@@ -21,9 +21,4 @@ final class BarcodeReaderViewModel: ObservableObject {
     var statusColor: Color {
         scannedCode.isEmpty ? .red : .green
     }
-    
-    func reloadView() {
-            objectWillChange.send()
-        }
-    
 }

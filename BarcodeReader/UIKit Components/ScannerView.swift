@@ -43,9 +43,7 @@ struct ScannerView: UIViewControllerRepresentable {
             case .invalidScannedValue:
                 scannerView.alertItem = AlertContext.invalidScannedValue
             }
-        }
-        
-        
+        }        
     }
 }
     

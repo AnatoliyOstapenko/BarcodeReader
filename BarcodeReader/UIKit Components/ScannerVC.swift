@@ -101,8 +101,7 @@ extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
             return }
 
         captureSession.stopRunning()
-        scannerDelegate?.didFind(barcode: barcode)
- 
+        scannerDelegate?.didFind(barcode: barcode) 
     }
 }
 

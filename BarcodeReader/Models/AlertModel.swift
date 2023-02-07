@@ -16,6 +16,7 @@ struct AlertItem: Identifiable {
     let dismissButton: Alert.Button
 }
 
+/// Mock alert messages
 struct AlertContext {
     static let invalidDeviceInput = AlertItem(title: "Invalid Device Input",
                                  message: "Something is wrong with camera. Disable to capture the input",
